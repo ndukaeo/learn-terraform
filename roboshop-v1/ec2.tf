@@ -16,7 +16,6 @@ resource "aws_route53_record" "frontend" {
 }
 
 
-
 resource "aws_instance" "mongo" {
   ami           = "ami-041e2ea9402c46c32"
   instance_type = "t3.small"
@@ -26,6 +25,15 @@ resource "aws_instance" "mongo" {
   }
 }
 
+resource "aws_route53_record" "mongo" {
+  zone_id = "Z0153757236UOMMSDCGKR"
+  name    = "mongo.dev.banecio-devops.online"
+  type    = "A"
+  ttl     = 15
+  records = [aws_instance.mongo.private_ip]
+}
+
+
 resource "aws_instance" "catalogue" {
   ami           = "ami-041e2ea9402c46c32"
   instance_type = "t3.small"
@@ -33,4 +41,13 @@ resource "aws_instance" "catalogue" {
   tags = {
     Name = "catalogue-dev"
   }
+}
+
+
+resource "aws_route53_record" "catalogue" {
+  zone_id = "Z0153757236UOMMSDCGKR"
+  name    = "catalogue.dev.banecio-devops.online"
+  type    = "A"
+  ttl     = 15
+  records = [aws_instance.catalogue.private_ip]
 }
