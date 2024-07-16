@@ -5,5 +5,5 @@ variable "x" {
 
 # outputs
 output "x" {
-  value = "var.x"
+  value = var.x
 }
