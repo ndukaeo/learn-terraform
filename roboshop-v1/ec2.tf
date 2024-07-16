@@ -3,7 +3,7 @@ resource "aws_instance" "frontend" {
   instance_type = "t3.small"
   vpc_security_group_ids = ["sg-058ad30c15d8e84f4"]
   tags = {
-    Name = "frontend"
+    Name = "frontend-dev"
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_instance" "mongo" {
   instance_type = "t3.small"
   vpc_security_group_ids = ["sg-058ad30c15d8e84f4"]
   tags = {
-    Name = "mongo"
+    Name = "mongo-dev"
   }
 }
 
@@ -21,6 +21,6 @@ resource "aws_instance" "catalogue" {
   instance_type = "t3.small"
   vpc_security_group_ids = ["sg-058ad30c15d8e84f4"]
   tags = {
-    Name = "catalogue"
+    Name = "catalogue-dev"
   }
 }
