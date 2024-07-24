@@ -19,4 +19,4 @@ resource "local_file" "foo" {
 # output "test" {
 #   value = data.vault_generic_secret.rundeck_auth.data["MYPASS"]
 # }
-#
+# due to sensitivity of data, this won't print the sensitive value
